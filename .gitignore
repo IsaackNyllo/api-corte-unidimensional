@@ -1,0 +1,19 @@
+# Ambiente virtual e segredos
+.venv/
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# IDE e ferramentas locais
+.cursor/
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

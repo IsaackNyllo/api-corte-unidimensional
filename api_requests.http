@@ -1,0 +1,49 @@
+@baseUrl = http://localhost:8000
+@apiKey = chave_da_api
+
+### Health check
+GET {{baseUrl}}/health
+
+###
+
+### Otimização — instância clássica (L = 3000 mm)
+POST {{baseUrl}}/otimizar
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "comprimento_padrao": 3000,
+  "itens": [
+    { "id": "item_A", "comprimento": 1150, "quantidade": 3 },
+    { "id": "item_B", "comprimento": 800, "quantidade": 4 },
+    { "id": "item_C", "comprimento": 450, "quantidade": 5 }
+  ],
+  "time_limit": 60
+}
+
+###
+
+### Otimização — sem API Key (esperado: 403)
+POST {{baseUrl}}/otimizar
+Content-Type: application/json
+
+{
+  "comprimento_padrao": 3000,
+  "itens": [
+    { "id": "item_A", "comprimento": 1150, "quantidade": 3 }
+  ]
+}
+
+###
+
+### Otimização — item maior que a barra (esperado: 422)
+POST {{baseUrl}}/otimizar
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "comprimento_padrao": 3000,
+  "itens": [
+    { "id": "item_gigante", "comprimento": 3500, "quantidade": 1 }
+  ]
+}
