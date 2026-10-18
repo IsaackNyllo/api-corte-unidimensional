@@ -259,4 +259,4 @@ pytest -v
 
 ---
 
-*Trabalho Final — Laboratório de Otimização.*
+Desenvolvido por Isaack Nyllo para a disciplina de Laboratório de Otimização (UFC). Organização do repositório com apoio de IA.
